@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		  <meta charset="utf-8">
+    	  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <title>CSV Data Entry</title>
+		  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		  <style type="text/css">
+		  	.btn-purple{
+		  	border: var(--bs-btn-border-width) solid #7777ae;
+    		background-color: #7777ae;
+    		}
+    		.btn-purple:hover{
+		      background-color: #32bcbb;
+   			  border-color: #32bcbb;
+    		}
+		  </style>
+	</head>
+	<body>
+		<nav class="navbar bg-body-tertiary mb-3">
+		  <div class="container">
+		    <a class="navbar-brand" href="#">
+		      <img src="/img/logo.png" alt="Emkan Logo" height="32">
+		    </a>
+		  </div>
+		</nav>
+		<div class="container p-5">
+		 <div class="col-12 d-flex justify-content-center">
+			<div class="col-3">
+			</div>
+			<div class="col-6">
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div class="col-3">
+						  <label for="formFile" class="form-label">CSV file input</label>
+						</div>
+						<div class="col-5"> 
+						  <input class="form-control" type="file" id="formFile"  accept=".csv">
+						</div>
+					</div>
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div class="col-3">
+							<label>Rate Limit</label>
+						</div>
+						<div class="col-5">
+							<input type="number" class="form-control" id="rateLimit"/>
+						</div>
+					</div>
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div class="col-3">
+							<label>Period 1</label>
+						</div>
+						<div class="col-5">
+							<input type="date" class="form-control" id="periodOne"/>
+						</div>
+					</div>
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div class="col-3">
+							<label>Period 2</label>
+						</div>
+						<div class="col-5">
+							<input type="date" class="form-control" id="periodTwo"/>
+						</div>
+					</div>
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div class="col-3">
+							<label>Period 3</label>
+						</div>
+						<div class="col-5">
+							<input type="date" class="form-control" id="periodThree"/>
+						</div>
+					</div>
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div class="col-3">
+							<input type="button" class="btn btn-primary btn-purple" value="SUBMIT" id="submit">
+						</div>	
+						<div class="col-5">
+						</div>
+					</div>
+					<div class="col-12 mb-3 d-flex justify-content-center">
+						<div id="result" class="col-8" style="border-radius: 0.4rem; padding: 0.5rem;"></div>
+					</div>
+				</div>
+				<div class="col-3">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/jquery-3.6.3.min.js"></script>
+		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
+	</body>
+</html>
