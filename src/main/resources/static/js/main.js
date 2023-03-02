@@ -1,5 +1,13 @@
-  $("#submit").click(function() {
-	  
+  
+  $( document ).ready(function() {
+	   
+	     getSavedDBConfig();
+	     
+	});
+	
+submitForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
 	  	  	 $("#result").empty();
 			  const file = $("input[type='file']")[0].files[0];
 			  const formData = new FormData();
@@ -21,10 +29,12 @@
 			    contentType: false,
 			    success: function(response) {
 					
+					getSavedDBConfig();
+					
 					$("#result").css("color","black");
 					$("#result").css("background","#00e7b8");
 					$("#result").css("margin-top","1rem");
-					$("#result").append("File uploaded successfully!");
+					$("#result").append("Saved successfully!");
 					
 			    },
 			    error: function(error) {
@@ -36,3 +46,24 @@
 			  });
 	  
 	  });
+	  
+     $("#startJob").click(function() {});
+	 $("#stopJob").click(function() {});
+	    
+	  function getSavedDBConfig(){
+		   
+	     $.ajax({
+			    url: "/getdbconfig",
+			    processData: false,
+			    contentType: false,
+			    success: function(response) {
+					$("#rateLimit").val(response.rateLimit);
+					$("#periodOne").val(response.periodOne);
+					$("#periodTwo").val(response.periodTwo);
+					$("#periodThree").val(response.periodThree);
+					},
+					 error: function(error) {
+			    	 console.log(error);
+			    	}
+			  });
+	  }

@@ -1,0 +1,8 @@
+	.btn-purple{
+		  	border: var(--bs-btn-border-width) solid #7777ae;
+    		background-color: #7777ae;
+    		}
+ 	.btn-purple:hover{
+    		  background-color: rgb(92, 92, 156);
+			  border-color: rgb(92, 92, 156);
+ 		}
