@@ -9,10 +9,13 @@
 		 
 		 
 		     $("#uploadLoader").removeClass("d-none");
+		     $("#formFile").removeClass("required");
 		   	 $("#result").empty();
 			  const file = $("input[type='file']")[0].files[0];
 			if (typeof file === "undefined") 
-			 {      $("#uploadLoader").addClass("d-none");
+			 {     
+				    $("#uploadLoader").addClass("d-none");
+			  		$("#formFile").addClass("required");
 				    $("#result").css("color","white");
 					$("#result").css("background","#dc3545");
 					$("#result").css("margin-top","1rem");

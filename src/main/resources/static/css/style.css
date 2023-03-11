@@ -71,3 +71,8 @@
 	border-radius: 0.4rem;
 	padding: 1rem 3rem;
 }
+.required{
+	border: 1px solid #dc3545;
+    background: #dc35451f;
+    color: #dc3545;
+}
