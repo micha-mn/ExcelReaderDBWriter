@@ -1,25 +1,30 @@
   
   $( document ).ready(function() {
 	   
-	     getSavedDBConfig();
+	   //  getSavedDBConfig();
 	     
 	});
 	
-submitForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  
-	  	  	 $("#result").empty();
+	 $("#upload").click(function() {
+		 
+		 
+		     $("#uploadLoader").removeClass("d-none");
+		   	 $("#result").empty();
 			  const file = $("input[type='file']")[0].files[0];
+			if (typeof file === "undefined") 
+			 {      $("#uploadLoader").addClass("d-none");
+				    $("#result").css("color","white");
+					$("#result").css("background","#dc3545");
+					$("#result").css("margin-top","1rem");
+					$("#result").append("File is required!");
+					return;
+			 }
 			  const formData = new FormData();
 			  formData.append("file", file);
-			  const rateLimit = $("#rateLimit").val();
-  			  formData.append("rateLimit", rateLimit);
   			  const periodOne = $("#periodOne").val();
   			  formData.append("periodOne", periodOne);
   			  const periodTwo = $("#periodTwo").val();
   			  formData.append("periodTwo", periodTwo);
-  			  const periodThree = $("#periodThree").val();
-  			  formData.append("periodThree", periodThree);
   			  
 			  $.ajax({
 			    url: "/read",
@@ -29,26 +34,37 @@ submitForm.addEventListener("submit", (e) => {
 			    contentType: false,
 			    success: function(response) {
 					
-					getSavedDBConfig();
-					
-					$("#result").css("color","black");
-					$("#result").css("background","#00e7b8");
+				    $("input[type='file']").val('');
+					$("#uploadLoader").addClass("d-none");
+					$("#result").css("color","white");
+					$("#result").css("background","#32bcbb");
 					$("#result").css("margin-top","1rem");
-					$("#result").append("Saved successfully!");
+					$("#result").append("Uploaded successfully!");
 					
 			    },
 			    error: function(error) {
-			     	$("#result").css("color","black");
-					$("#result").css("background","red");
+			     	$("#result").css("color","white");
+					$("#result").css("background","#dc3545");
 					$("#result").css("margin-top","1rem");
 					$("#result").append(error.responseJSON.message);
 			    }
 			  });
-	  
-	  });
-	  
-     $("#startJob").click(function() {});
-	 $("#stopJob").click(function() {});
+		 
+		 });  
+     $("#startJob").click(function() {
+		 
+		 $("#startJob").addClass("d-none");
+		 $("#stopJob").removeClass("d-none");
+		 $("#loader").removeClass("d-none");
+		 
+		  
+	 });
+	 $("#stopJob").click(function() {
+		 
+		  $("#stopJob").addClass("d-none");
+		  $("#loader").addClass("d-none");
+		  $("#startJob").removeClass("d-none");
+	 });
 	    
 	  function getSavedDBConfig(){
 		   

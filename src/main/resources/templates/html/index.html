@@ -3,81 +3,101 @@
 	<head>
 		  <meta charset="utf-8">
     	  <meta name="viewport" content="width=device-width, initial-scale=1">
-		  <title>CSV Data Entry</title>
+		  <title>Emkan - IVR Process</title>
+		  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 		  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 		  <link href="/css/style.css" rel="stylesheet"/>
 	</head>
 	<body>
-		<nav class="navbar bg-body-tertiary mb-3">
-		  <div class="container">
-		    <a class="navbar-brand" href="#">
-		      <img src="/img/logo.png" alt="Emkan Logo" height="32">
-		    </a>
-		  </div>
-		</nav>
-		<div class="container p-5">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary h-90">
+	  <div class="container-fluid container">
+	    <a class="navbar-brand" href="#">
+	      <img src="/img/logo.png" alt="Emkan Logo" height="32">
+	    </a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="" id="navbarScroll">
+	      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">IVR Process</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="#">IVR Configuration</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="#">SMS Configuration</a>
+	        </li>  
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	 <img src="/img/background.jpg" alt="emkan building background" class="position-fixed" width="100%;">
+	 <div class="container p-5 position-relative">
 		<form action="" id="submitForm">
-		 <div class="col-12 d-flex justify-content-center">
-				<div class="col-3">
-				</div>
-				<div class="col-6">
-						<div class="col-12 mb-3 d-flex">
-							<div class="col-3">
-							  <label for="formFile" class="form-label">CSV file input</label>
-							</div>
-							<div class="col-5"> 
-							  <input class="form-control" type="file" id="formFile"  accept=".csv" required>
-							</div>
-						</div>
-						<div class="col-12 mb-3 d-flex">
-							<div class="col-3">
-								<label>Rate Limit</label>
-							</div>
-							<div class="col-5">
-								<input type="number" class="form-control" id="rateLimit"/>
-							</div>
-						</div>
-						<div class="col-12 mb-3 d-flex">
-							<div class="col-3">
-								<label>Period 1</label>
-							</div>
-							<div class="col-5">
-								<input type="datetime-local" class="form-control" id="periodOne"/>
-							</div>
-						</div>
-						<div class="col-12 mb-3 d-flex">
-							<div class="col-3">
-								<label>Period 2</label>
-							</div>
-							<div class="col-5">
-								<input type="datetime-local" class="form-control" id="periodTwo"/>
-							</div>
-						</div>
-						<div class="col-12 mb-3 d-flex">
-							<div class="col-3">
-								<label>Period 3</label>
-							</div>
-							<div class="col-5">
-								<input type="datetime-local" class="form-control" id="periodThree"/>
-							</div>
-						</div>
-						<div class="col-12 mb-3 d-flex">
-							<div class="col-5">
-								<input type="submit" class="btn btn-primary btn-purple" value="SAVE" id="submit">
-								<input type="reset" class="btn btn-secondary" value="RESET" id="reset">
-							</div>	
-						</div>
+		
+		 <h1 class="h1-style">IVR Process</h1>
+		 <div class="col-12 d-flex justify-content-between">
+				 <div class="col-9">
+					 <div class="col-12 box-style">
 							<div class="col-12 mb-3 d-flex">
-							<div class="col-6">
-								<input type="button" class="btn btn-success" value="START JOB" id="startJob">
-								<input type="button" class="btn btn-danger" value="STOP JOB" id="stopJob">
-							</div>	
+								<div class="col-3">
+								  <label for="formFile" class="form-label label-style c-gray">Upload your file</label>
+								</div>
+								<div class="col-7"> 
+								  <input class="form-control" type="file" id="formFile" required>
+								</div>
+								<div class="col-2">
+									<input type="button" class="btn btn-success float-end w-85 btn-inverse position-relative z-1" value="UPLOAD" id="upload">
+									<img id="uploadLoader" src="/img/loader.gif" alt="Loader" class="loader-style d-none z-0">
+								</div>	
+							</div>
+							<div class="col-12 d-flex">
+								<div class="col-3">
+									<label class="label-style c-gray">Start job from period</label>
+								</div>
+								<div class="col-3">
+									<input type="datetime-local" class="form-control" id="periodOne"/>
+								</div>
+								<div class="col-1">
+									<label class="px-2 label-style c-gray">to</label>
+								</div>
+								<div class="col-3">
+									<input type="datetime-local" class="form-control" id="periodTwo"/>
+								</div>
+								<div class="col-2">
+									<input type="button" class="btn btn-success float-end w-85 position-relative z-1" value="START" id="startJob">
+									<input type="button" class="btn btn-danger float-end d-none w-85 position-relative z-1" value="STOP" id="stopJob">
+									<img id="loader" src="/img/loader.gif" alt="Loader" class="loader-style d-none z-0">
+								</div>	
+							</div>
+							
 						</div>
-						<div class="col-12 mb-3 d-flex">
-							<div id="result" class="col-8" style="border-radius: 0.4rem; padding: 0.5rem;"></div>
+						<div class="col-12 box-style">
+							<div class="col-12 d-flex">
+								<div class="col-3">
+									<label class="label-style c-gray">Export job result from period</label>
+								</div>								<div class="col-3">
+									<input type="datetime-local" class="form-control" id="export-periodOne"/>
+								</div>
+								<div class="col-1">
+									<label class="px-2 label-style c-gray">to</label>
+								</div>
+								<div class="col-3">
+									<input type="datetime-local" class="form-control" id="export-periodTwo"/>
+								</div>
+								<div class="col-2">
+									<input type="button" class="btn btn-success float-end w-85" value="EXPORT" id="export">
+								</div>	
+							</div>
 						</div>
+						
+							<div class="col-12 mb-3 d-flex">
+								<div id="result" class="col-12 result-style" ></div>
+							</div>
 					</div>
-					<div class="col-3">
+					<div class="col-2 pt-4">
+						<img alt="white logo emkan" src="/img/logo-white.png" width="70%">
 					</div>
 				</div>
 				</form>
