@@ -59,7 +59,8 @@
 	    color: gray;
 }
 .loader-style{
-	width: 205px;
+	width: 105px;
+    padding-left: 1rem;
     height: 85px;
     position: fixed;
 }

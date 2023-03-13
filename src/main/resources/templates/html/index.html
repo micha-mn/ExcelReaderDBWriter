@@ -38,7 +38,7 @@
 		
 		 <h1 class="h1-style">IVR Process</h1>
 		 <div class="col-12 d-flex justify-content-between">
-				 <div class="col-9">
+				 <div class="col-7">
 					 <div class="col-12 box-style">
 							<div class="col-12 mb-3 d-flex">
 								<div class="col-3">
@@ -54,16 +54,16 @@
 							</div>
 							<div class="col-12 d-flex">
 								<div class="col-3">
-									<label class="label-style c-gray">Start job from period</label>
+									<label class="label-style c-gray">Start job from </label>
 								</div>
 								<div class="col-3">
-									<input type="datetime-local" class="form-control" id="periodOne"/>
+									<input type="number" class="form-control" id="periodOne" value="0"/>
 								</div>
 								<div class="col-1">
 									<label class="px-2 label-style c-gray">to</label>
 								</div>
 								<div class="col-3">
-									<input type="datetime-local" class="form-control" id="periodTwo"/>
+									<input type="number" class="form-control" id="periodTwo" value="250"/>
 								</div>
 								<div class="col-2">
 									<input type="button" class="btn btn-success float-end w-85 position-relative z-1" value="START" id="startJob">
@@ -76,15 +76,15 @@
 						<div class="col-12 box-style">
 							<div class="col-12 d-flex">
 								<div class="col-3">
-									<label class="label-style c-gray">Export job result from period</label>
+									<label class="label-style c-gray">Export job result from </label>
 								</div>								<div class="col-3">
-									<input type="datetime-local" class="form-control" id="export-periodOne"/>
+									<input type="number" class="form-control" id="export-periodOne" value="0"/>
 								</div>
 								<div class="col-1">
 									<label class="px-2 label-style c-gray">to</label>
 								</div>
 								<div class="col-3">
-									<input type="datetime-local" class="form-control" id="export-periodTwo"/>
+									<input type="number" class="form-control" id="export-periodTwo" value="250"/>
 								</div>
 								<div class="col-2">
 									<input type="button" class="btn btn-success float-end w-85" value="EXPORT" id="export">
