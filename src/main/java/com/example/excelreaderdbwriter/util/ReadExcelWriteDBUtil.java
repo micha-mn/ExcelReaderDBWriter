@@ -7,11 +7,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.excelreaderdbwriter.dto.DataDTO;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 public class ReadExcelWriteDBUtil {
 
@@ -38,5 +44,37 @@ public class ReadExcelWriteDBUtil {
         return null;
 
    }
+// new
+public static void exportExcelFile(List<DataDTO> dataList, HttpServletResponse response) {
+	// create workbook and sheet
+	response.setHeader("Content-Disposition", "attachment; filename=data.xlsx");
+    response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+    
+    try {
+    	
+    
+    Workbook workbook = new XSSFWorkbook();
+    Sheet sheet = workbook.createSheet("Data");
+
+    // create header row
+    Row header = sheet.createRow(0);
+    header.createCell(0).setCellValue("DATE");
+    header.createCell(1).setCellValue("VALUE");
+
+    // retrieve data from JPA list and populate rows
+   
+    int rowNum = 1;
+    for (DataDTO data : dataList) {
+        Row row = sheet.createRow(rowNum++);
+        row.createCell(0).setCellValue(data.getDate());
+        row.createCell(1).setCellValue(data.getValue());
+    }
+
+    workbook.write(response.getOutputStream());
+    workbook.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+}
 
 }

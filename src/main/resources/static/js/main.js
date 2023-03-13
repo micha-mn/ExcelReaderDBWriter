@@ -68,7 +68,7 @@
 		  $("#loader").addClass("d-none");
 		  $("#startJob").removeClass("d-none");
 	 });
-	    
+	
 	  function getSavedDBConfig(){
 		   
 	     $.ajax({
@@ -86,3 +86,10 @@
 			    	}
 			  });
 	  }
+	  
+	   $("#export").click(function() {
+		  const data = {fromPeriod: $("#export-periodOne").val() , toPeriod: $("#export-periodTwo").val()};
+		  window.open("/export?exportExcelDTO="+encodeURIComponent(JSON.stringify(data)));
+		
+		});
+		    
