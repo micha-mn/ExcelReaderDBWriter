@@ -35,7 +35,7 @@ in the ReadexcelWriteDbUtil.java add:
 
 public static void exportExcelFile(List<DataDTO> dataList, HttpServletResponse response) {
 	// create workbook and sheet
-	response.setHeader("Content-Disposition", "attachment; filename=data.xlsx");
+	response.setHeader("Content-Disposition", "attachment; filename=Emkan-IVR-Process-Job-Result-Data-"+LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm")) +".xlsx");
     response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     
     try {
